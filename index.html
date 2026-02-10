@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Yakupoğulları Petrol - Ana Sayfa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: #f9f9f9;
+            /* Off-white background */
+            border-bottom: 3px solid #d4af37;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            /* Lighter shadow */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background: #0f0f1e;
+            padding: 10px 0;
+            border-bottom: 1px solid #2a2a3e;
+        }
+
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            color: #d4af37;
+            font-size: 14px;
+        }
+
+        .contact-info span i {
+            margin-right: 5px;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #langToggle {
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #0a0a0a;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+        }
+
+        #langToggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.5);
+        }
+
+        nav {
+            padding: 0;
+            /* Reduced to minimum */
+        }
+
+        /* ... existing styles ... */
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 0 10px;
+                justify-content: center;
+                justify-items: center;
+            }
+
+            .service-card {
+                width: 100%;
+                max-width: 160px;
+                aspect-ratio: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .service-card h3 {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            .service-card p {
+                display: none;
+            }
+
+            .service-icon {
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            /* Widened from 1200px */
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d4af37;
+            text-shadow: none;
+            /* Removed text shadow */
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-image {
+            height: 125px;
+            /* Increased from 110px */
+            width: auto;
+            margin-right: -10px;
+        }
+
+        .logo {
+            font-size: 32px;
+            /* ... existing styles ... */
+            align-items: center;
+            /* Ensure vertical alignment */
+        }
+
+        .pulsating-logo {
+            width: 70px;
+            /* Increased from 40px */
+            height: 70px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            object-fit: contain;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+
+            70% {
+                transform: scale(1.05);
+                /* Reduced scale slightly for larger size */
+                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+                /* Larger shadow */
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            flex-wrap: nowrap;
+            /* Prevent wrapping */
+        }
+
+        .nav-links a {
+            color: #333333;
+            /* Dark text for light background */
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 5px;
+            white-space: nowrap;
+            /* Ensure text doesn't wrap */
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+            background: rgba(0, 0, 0, 0.05);
+            /* Light hover effect */
+        }
+
+        /* Pulsating Logo */
+        .pulsating-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            object-fit: contain;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+
+            70% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+        /* Mobile Contact Widget */
+        .mobile-contact-widget {
+            display: none;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            z-index: 2000;
+            transform: translateX(calc(100% - 40px));
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-contact-widget.active {
+            transform: translateX(0);
+        }
+
+        .mobile-widget-container {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .mobile-contact-trigger {
+            background: #d4af37;
+            color: #0a0a0a;
+            padding: 15px 10px;
+            border-radius: 10px 0 0 10px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mobile-contact-content {
+            background: #1a1a2e;
+            padding: 20px;
+            border-radius: 0 0 0 10px;
+            border: 2px solid #d4af37;
+            border-right: none;
+            width: 250px;
+            color: white;
+            box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+
+        .mobile-contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .mobile-contact-item i {
+            color: #d4af37;
+            font-size: 16px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Image Slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 600px;
+            overflow: hidden;
+            background: #0a0a0a;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+            width: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .slider-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-content {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            padding: 20px;
+        }
+
+        .slider-content h1 {
+            font-size: 56px;
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .slider-content p {
+            font-size: 22px;
+            color: #e0e0e0;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 20;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #d4af37;
+        }
+
+        .slider-dot.active {
+            background: #d4af37;
+            width: 40px;
+            border-radius: 6px;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 175, 55, 0.8);
+            color: #0a0a0a;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .slider-arrow:hover {
+            background: #d4af37;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-arrow.prev {
+            left: 20px;
+        }
+
+        .slider-arrow.next {
+            right: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            border-bottom: 5px solid #d4af37;
+        }
+
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #0a0a0a;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            /* Off-white background */
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #e0e0e0;
+            /* UI Light border */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: #eaeaea;
+            /* Slightly darker on hover */
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .service-icon {
+            font-size: 60px;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: #333333;
+            /* Dark text */
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .service-card p {
+            color: #555555;
+            /* Darker grey text */
+            line-height: 1.8;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #16213e 100%);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: #f9f9f9;
+            /* Off-white background */
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: #eaeaea;
+            /* Light placeholder bg */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            color: #333333;
+            /* Dark text */
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .product-info p {
+            color: #555555;
+            /* Dark grey text */
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            color: #d4af37;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: #d4af37;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: #d4af37;
+            border: 3px solid #d4af37;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            border-top: 3px solid #d4af37;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #b0b0b0;
+            font-size: 18px;
+        }
+
+        /* Brand Section */
+        .brand-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+            text-align: center;
+        }
+
+        .brand-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .brand-title {
+            font-family: 'Georgia', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #d4af37;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            line-height: 1.3;
+        }
+
+        .brand-image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+            border: 3px solid #d4af37;
+            border-radius: 15px;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            overflow: hidden;
+        }
+
+        .brand-description {
+            font-size: 18px;
+            color: #b0b0b0;
+            line-height: 1.9;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0f0f1e 100%);
+            padding: 60px 20px 20px;
+            border-top: 3px solid #d4af37;
+        }
+
+        /* Location Map Section */
+        .location-map {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        /* Truck Wash Section */
+        .truck-wash {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+        }
+
+        .truck-wash-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .truck-wash-slider {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 3px solid #d4af37;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .truck-wash-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+            width: 100%;
+        }
+
+        .truck-wash-slide {
+            min-width: 100%;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .truck-wash-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .truck-wash-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 40px;
+            color: white;
+        }
+
+        .truck-wash-overlay h3 {
+            color: #d4af37;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .truck-wash-overlay p {
+            color: #e0e0e0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .truck-wash-nav {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+        }
+
+        .truck-wash-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #d4af37;
+        }
+
+        .truck-wash-dot.active {
+            background: #d4af37;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        .truck-wash-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 175, 55, 0.9);
+            color: #0a0a0a;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .truck-wash-arrow:hover {
+            background: #d4af37;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .truck-wash-arrow.prev {
+            left: 20px;
+        }
+
+        .truck-wash-arrow.next {
+            right: 20px;
+        }
+
+        .truck-wash-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .truck-wash-feature {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #2a2a3e;
+            transition: all 0.3s ease;
+        }
+
+        .truck-wash-feature:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .truck-wash-feature-icon {
+            font-size: 50px;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .truck-wash-feature h4 {
+            color: #d4af37;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .truck-wash-feature p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid #d4af37;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .map-header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .map-header h3 {
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 0;
+        }
+
+        .map-content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            min-height: 500px;
+        }
+
+        .map-info {
+            background: #16213e;
+            padding: 30px;
+            border-right: 2px solid #d4af37;
+        }
+
+        .map-info h4 {
+            color: #d4af37;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .map-info p {
+            color: #b0b0b0;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .map-link {
+            display: inline-block;
+            color: #4a90e2;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .map-link:hover {
+            color: #d4af37;
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            min-height: 500px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #b0b0b0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2a2a3e;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-contact-widget {
+                display: block;
+            }
+
+            .top-bar .contact-info {
+                display: none;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+                gap: 8px;
+                flex-wrap: nowrap;
+            }
+
+            .logo-image {
+                height: 35px;
+                flex-shrink: 0;
+            }
+
+            .nav-content {
+                padding: 0 5px;
+            }
+
+            .hamburger {
+                display: flex;
+                flex-shrink: 0;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                border-top: 2px solid #d4af37;
+            }
+
+            .nav-links.active {
+                max-height: 400px;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid #2a2a3e;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 15px 20px;
+                border-radius: 0;
+            }
+
+            .slider-container {
+                height: 400px;
+            }
+
+            .slider-content h1 {
+                font-size: 28px;
+                padding: 0 10px;
+            }
+
+            .slider-content p {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .slider-arrow.prev {
+                left: 10px;
+            }
+
+            .slider-arrow.next {
+                right: 10px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* Changed to 2 columns as requested */
+                gap: 15px;
+                padding: 0 10px;
+            }
+
+            .section-title {
+                font-size: 28px;
+                padding: 0 10px;
+            }
+
+            .section-subtitle {
+                padding: 0 10px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                padding: 0 10px;
+            }
+
+            .contact-info {
+                gap: 10px;
+                justify-content: center;
+            }
+
+            .contact-info span {
+                font-size: 12px;
+            }
+
+            .truck-wash-slider {
+                height: 400px;
+                border-radius: 10px;
+            }
+
+            .truck-wash-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .truck-wash-arrow.prev {
+                left: 10px;
+            }
+
+            .truck-wash-arrow.next {
+                right: 10px;
+            }
+
+            .truck-wash-overlay {
+                padding: 20px;
+            }
+
+            .truck-wash-overlay h3 {
+                font-size: 22px;
+            }
+
+            .truck-wash-overlay p {
+                font-size: 14px;
+            }
+
+            .truck-wash-features {
+                grid-template-columns: 1fr;
+                padding: 0 10px;
+            }
+
+            .map-content {
+                grid-template-columns: 1fr;
+            }
+
+            .map-info {
+                border-right: none;
+                border-bottom: 2px solid #d4af37;
+            }
+
+            .map-container {
+                border-radius: 10px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .logo {
+                font-size: 15px;
+                gap: 6px;
+            }
+
+            .logo-image {
+                height: 28px;
+            }
+
+            .slider-container {
+                height: 300px;
+            }
+
+            .slider-content h1 {
+                font-size: 22px;
+            }
+
+            .slider-content p {
+                font-size: 14px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .contact-info span {
+                font-size: 11px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .section-subtitle {
+                font-size: 14px;
+            }
+
+            .truck-wash-slider {
+                height: 300px;
+            }
+
+            .truck-wash-container {
+                padding: 0;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .stat-label {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span>📞 +90 (551) 351 38 59</span>
+                    <a href="mailto:yakupogullaripetrol@gmail.com" style="color: #d4af37; text-decoration: none;">✉️
+                        yakupogullaripetrol@gmail.com</a>
+                    <span>📍 Velimeşe OSB, Çerkezköy-Çorlu Yolu, Ergene/Tekirdağ</span>
+                </div>
+                <div class="lang-switcher">
+                    <button id="langToggle" onclick="toggleLanguage()">EN</button>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <img src="amblemler/amblem1.png" alt="Moil Logo" class="logo-image">
+                        YAKUPOĞULLARI<span>PETROL</span>
+                    </div>
+                    <div class="hamburger" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#ana-sayfa" onclick="closeMenu()">Ana Sayfa</a></li>
+                        <li><a href="#hizmetler" onclick="closeMenu()">Hizmetler</a></li>
+                        <li><a href="#tir-yikama" onclick="closeMenu()">Tır Yıkama</a></li>
+                        <li><a href="#hakkimizda" onclick="closeMenu()">Hakkımızda</a></li>
+                        <li><a href="#iletisim" onclick="closeMenu()">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="ana-sayfa">
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <div class="slide">
+                    <img src="img/benzinlik1.jpeg" alt="Yakupoğulları Petrol İstasyonu">
+                    <div class="slider-overlay">
+                        <div class="slider-content">
+                            <h1>Yakupoğulları Petrol'e Hoş Geldiniz</h1>
+                            <p>Kaliteli akaryakıt ve madeni yağ ürünleriyle hizmetinizdeyiz</p>
+                            <a href="#iletisim" class="cta-button">Hemen İletişime Geçin</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/benzinlik2.jpeg" alt="Yakupoğulları Petrol Totem">
+                    <div class="slider-overlay">
+                        <div class="slider-content">
+                            <h1>Modern Tesislerimiz</h1>
+                            <p>Son teknoloji donanım ve güvenli hizmet</p>
+                            <a href="#hizmetler" class="cta-button">Hizmetlerimizi Keşfedin</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/benzinlik3.jpeg" alt="Yakupoğulları Petrol İstasyon">
+                    <div class="slider-overlay">
+                        <div class="slider-content">
+                            <h1>Geniş Hizmet Alanı</h1>
+                            <p>Çerkezköy-Çorlu yolu üzerinde kolay erişim</p>
+                            <a href="#hakkimizda" class="cta-button">Hakkımızda</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/benzinlik4.jpeg" alt="Yakupoğulları Petrol Genel Görünüm">
+                    <div class="slider-overlay">
+                        <div class="slider-content">
+                            <h1>Güvenilir Marka</h1>
+                            <p>M Oil ve Milangaz yetkili bayii</p>
+                            <a href="#urunler" class="cta-button">Ürünlerimiz</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/market.jpeg" alt="Yakupoğulları Petrol Market">
+                    <div class="slider-overlay">
+                        <div class="slider-content">
+                            <h1>Market ve Cafe Hizmetimiz</h1>
+                            <p>Soğuk içecekler ve yiyecek çeşitlerimizle yanınızdayız</p>
+                            <a href="#iletisim" class="cta-button">Bizi Ziyaret Edin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-arrow prev" onclick="moveSlide(-1)">‹</button>
+            <button class="slider-arrow next" onclick="moveSlide(1)">›</button>
+            <div class="slider-nav">
+                <span class="slider-dot active" onclick="currentSlide(0)"></span>
+                <span class="slider-dot" onclick="currentSlide(1)"></span>
+                <span class="slider-dot" onclick="currentSlide(2)"></span>
+                <span class="slider-dot" onclick="currentSlide(3)"></span>
+                <span class="slider-dot" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="services" id="hizmetler">
+        <div class="container">
+            <h2 class="section-title">Hizmetlerimiz</h2>
+            <p class="section-subtitle">Size en iyi hizmeti sunmak için buradayız</p>
+            <div class="services-grid">
+                <div class="service-card" onclick="window.location.href='akaryakit-satisi.html'"
+                    style="cursor: pointer;">
+                    <div class="service-icon">⛽</div>
+                    <h3>Akaryakıt Satışı</h3>
+                    <p>Yüksek kaliteli benzin ve motorin ürünleriyle araçlarınıza en iyi performansı sağlıyoruz.</p>
+                </div>
+                <div class="service-card" onclick="window.location.href='madeni-yag.html'" style="cursor: pointer;">
+                    <div class="service-icon">🛢️</div>
+                    <h3>Madeni Yağ</h3>
+                    <p>Motor, şanzıman ve hidrolik yağlar dahil geniş ürün yelpazesi ile hizmetinizdeyiz.</p>
+                </div>
+                <div class="service-card" onclick="window.location.href='toptan-satis.html'" style="cursor: pointer;">
+                    <div class="service-icon">🚚</div>
+                    <h3>Toptan Satış</h3>
+                    <p>Kurumsal müşterilerimize özel avantajlı fiyatlar ve hızlı teslimat hizmeti sunuyoruz.</p>
+                </div>
+                <div class="service-card" onclick="window.location.href='yakitmatik.html'" style="cursor: pointer;">
+                    <div class="service-icon">💳</div>
+                    <h3>Yakıtmatik</h3>
+                    <p>Pratik ödeme sistemi ile zamandan tasarruf edin, kolay ve güvenli ödemeler yapın.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Teknik Destek</h3>
+                    <p>Uzman ekibimiz ile ürün seçimi ve teknik konularda profesyonel danışmanlık hizmeti.</p>
+                </div>
+                <div class="service-card" onclick="window.location.href='tir-yikama.html'" style="cursor: pointer;">
+                    <div class="service-icon">🚛</div>
+                    <h3>Tır Yıkama</h3>
+                    <p>Modern yıkama sistemimiz ile ağır vasıta araçlarınız için profesyonel temizlik hizmeti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="hakkimizda">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Hakkımızda</h2>
+                <p>Moil – Yakupoğulları Petrol; Tekirdağ, Ergene/Velimeşe OSB’de konumlu bir akaryakıt istasyonudur.
+                    Eurodiesel, benzin ve AdBlue ürünleriyle bireysel ve kurumsal müşterilere hizmet verir. Yakıt
+                    tedariki Total Energies üzerinden sağlanmakta olup, kalite ve süreklilik önceliğimizdir. Lojistik,
+                    taşımacılık ve sanayi firmaları için faturalı satış, toplu alım ve planlı ikmal süreçleri yürütülür.
+                    Geniş araç alanı, kolay giriş-çıkış ve düzenli pompalarla kesintisiz hizmet sunulur. Kurumsal
+                    talepler ve iş birlikleri için iletişime açıktır.</p>
+                <p>Müşteri memnuniyetini ön planda tutarak, kaliteli ürünler ve güler yüzlü hizmet anlayışımızla
+                    sektörde fark yaratıyoruz. Geniş ürün yelpazemiz ve deneyimli kadromuzla her türlü ihtiyacınıza
+                    çözüm üretiyoruz.</p>
+                <p>Vizyonumuz, Türkiye'nin önde gelen petrol ürünleri tedarikçilerinden biri olmak ve müşterilerimize en
+                    iyi hizmeti sunmaya devam etmektir.</p>
+                <a href="#iletisim" class="cta-button" style="margin-top: 20px;">Daha Fazla Bilgi</a>
+            </div>
+            <div class="about-image">
+                <img src="img/pompacı1.jpg" alt="Yakupoğulları Petrol Hizmet"
+                    style="width: 100%; height: auto; border-radius: 10px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Section -->
+    <section class="brand-section">
+        <div class="container">
+            <div class="brand-content">
+                <h2 class="brand-title">MOİL, TOTALENERGIES'İN ALT KURULUŞUDUR</h2>
+                <div class="brand-image-placeholder">
+                    <img src="img/moil1.jpeg" alt="Moil - TotalEnergies" style="max-width: 100%; height: auto;">
+                </div>
+                <p class="brand-description">Dünya çapında güvenilir enerji çözümleri sunan TotalEnergies'in
+                    Türkiye'deki gücü Moil ile tanışın. Yakupoğulları Petrol olarak, bu güçlü iş birliğiyle size en
+                    kaliteli akaryakıt ve petrol ürünlerini sunmanın gururunu yaşıyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="truck-wash" id="tir-yikama">
+        <div class="truck-wash-container">
+            <h2 class="section-title">Tır Yıkama Hizmetimiz</h2>
+            <p class="section-subtitle">Profesyonel ekipman ve deneyimli personelimizle ağır vasıta yıkama hizmeti</p>
+
+            <div class="truck-wash-slider">
+                <div class="truck-wash-slides" id="truckWashSlider">
+                    <div class="truck-wash-slide">
+                        <img src="img/tıryıkama1.jpeg" alt="Tır Yıkama - Akşam Görünümü">
+                        <div class="truck-wash-overlay">
+                            <h3>Modern Yıkama Tesisimiz</h3>
+                            <p>7/24 hizmet veren son teknoloji tır yıkama sistemi</p>
+                        </div>
+                    </div>
+                    <div class="truck-wash-slide">
+                        <img src="img/tıryıkama2.jpeg" alt="Tır Yıkama - MAN TIR">
+                        <div class="truck-wash-overlay">
+                            <h3>Profesyonel Yıkama</h3>
+                            <p>Tüm marka ve model ağır vasıta araçlar için uygun</p>
+                        </div>
+                    </div>
+                    <div class="truck-wash-slide">
+                        <img src="img/tıryıkama3.jpeg" alt="Gece Görünümü">
+                        <div class="truck-wash-overlay">
+                            <h3>Gece Hizmeti</h3>
+                            <p>24 saat kesintisiz hizmet ile her an yanınızdayız</p>
+                        </div>
+                    </div>
+                    <div class="truck-wash-slide">
+                        <img src="img/tıryıkama4.jpeg" alt="Otomatik Yıkama Sistemi">
+                        <div class="truck-wash-overlay">
+                            <h3>Otomatik Sistem</h3>
+                            <p>Son teknoloji otomatik yıkama fırçaları ile detaylı temizlik</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="truck-wash-arrow prev" onclick="moveTruckWashSlide(-1)">‹</button>
+                <button class="truck-wash-arrow next" onclick="moveTruckWashSlide(1)">›</button>
+                <div class="truck-wash-nav">
+                    <span class="truck-wash-dot active" onclick="currentTruckWashSlide(0)"></span>
+                    <span class="truck-wash-dot" onclick="currentTruckWashSlide(1)"></span>
+                    <span class="truck-wash-dot" onclick="currentTruckWashSlide(2)"></span>
+                    <span class="truck-wash-dot" onclick="currentTruckWashSlide(3)"></span>
+                </div>
+            </div>
+
+            <!-- Before/After Comparison Slider -->
+            <div class="comparison-wrapper">
+                <h3>Yıkama Öncesi ve Sonrası</h3>
+                <div class="comparison-container">
+                    <button class="comp-arrow prev" onclick="moveCompSlide(-1)">‹</button>
+
+                    <div class="comp-slider-frame" id="beforeSlider">
+                        <div class="comp-label">ÖNCESİ</div>
+                        <div class="comp-slides">
+                            <img src="img/öncesi1.jpeg" alt="Öncesi 1">
+                            <img src="img/öncesi2.jpeg" alt="Öncesi 2">
+                            <img src="img/önce3.jpeg" alt="Öncesi 3">
+                            <img src="img/öncesi4.jpeg" alt="Öncesi 4">
+                        </div>
+                    </div>
+
+                    <div class="comp-slider-frame" id="afterSlider">
+                        <div class="comp-label">SONRASI</div>
+                        <div class="comp-slides">
+                            <img src="img/sonra1.jpeg" alt="Sonrası 1">
+                            <img src="img/sonra2.jpeg" alt="Sonrası 2">
+                            <img src="img/sonra3.jpeg" alt="Sonrası 3">
+                            <img src="img/sonra4.jpeg" alt="Sonrası 4">
+                        </div>
+                    </div>
+
+                    <button class="comp-arrow next" onclick="moveCompSlide(1)">›</button>
+                </div>
+            </div>
+
+            <style>
+                .comparison-wrapper {
+                    margin: 40px auto;
+                    text-align: center;
+                    max-width: 1200px;
+                }
+
+                .comparison-wrapper h3 {
+                    color: #d4af37;
+                    font-size: 28px;
+                    margin-bottom: 20px;
+                }
+
+                .comparison-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 20px;
+                    position: relative;
+                }
+
+                .comp-slider-frame {
+                    width: 45%;
+                    height: 300px;
+                    overflow: hidden;
+                    border-radius: 10px;
+                    border: 2px solid #d4af37;
+                    position: relative;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                }
+
+                .comp-slides {
+                    display: flex;
+                    transition: transform 0.5s ease-in-out;
+                    height: 100%;
+                }
+
+                .comp-slides img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    flex-shrink: 0;
+                }
+
+                .comp-label {
+                    position: absolute;
+                    top: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0, 0, 0, 0.7);
+                    color: #d4af37;
+                    padding: 5px 15px;
+                    border-radius: 20px;
+                    font-weight: bold;
+                    z-index: 10;
+                    border: 1px solid #d4af37;
+                }
+
+                .comp-arrow {
+                    background: #d4af37;
+                    border: none;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    font-size: 24px;
+                    cursor: pointer;
+                    color: #000;
+                    transition: all 0.3s;
+                    z-index: 20;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .comp-arrow:hover {
+                    background: #fff;
+                    transform: scale(1.1);
+                }
+
+                @media (max-width: 768px) {
+                    .comparison-container {
+                        flex-direction: column;
+                    }
+
+                    .comp-slider-frame {
+                        width: 100%;
+                        height: 250px;
+                    }
+
+                    .comp-arrow {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 35px;
+                        height: 35px;
+                        font-size: 20px;
+                    }
+
+                    .comp-arrow.prev {
+                        left: 5px;
+                    }
+
+                    .comp-arrow.next {
+                        right: 5px;
+                    }
+                }
+            </style>
+
+            <script>
+                let compIndex = 0;
+                const totalCompSlides = 4; // Number of images per side
+
+                function moveCompSlide(direction) {
+                    compIndex += direction;
+                    if (compIndex >= totalCompSlides) compIndex = 0;
+                    if (compIndex < 0) compIndex = totalCompSlides - 1;
+
+                    const offset = -compIndex * 100;
+                    document.querySelectorAll('.comp-slides').forEach(slider => {
+                        slider.style.transform = `translateX(${offset}%)`;
+                    });
+                }
+            </script>
+
+            <div class="truck-wash-features">
+                <div class="truck-wash-feature">
+                    <div class="truck-wash-feature-icon">🚛</div>
+                    <h4>Tüm Araç Tipleri</h4>
+                    <p>Tır, kamyon, çekici ve tüm ağır vasıta araçlar için uygun</p>
+                </div>
+                <div class="truck-wash-feature">
+                    <div class="truck-wash-feature-icon">💧</div>
+                    <h4>Özel Kimyasallar</h4>
+                    <p>Araç boyasına zarar vermeyen, çevre dostu temizlik ürünleri</p>
+                </div>
+                <div class="truck-wash-feature">
+                    <div class="truck-wash-feature-icon">⏱️</div>
+                    <h4>Hızlı İşlem</h4>
+                    <p>Kısa sürede profesyonel temizlik hizmeti</p>
+                </div>
+                <div class="truck-wash-feature">
+                    <div class="truck-wash-feature-icon">💰</div>
+                    <h4>Uygun Fiyat</h4>
+                    <p>Kaliteli hizmeti en uygun fiyatlarla sunuyoruz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location-map" id="konum">
+        <div class="container">
+            <h2 class="section-title">Konumumuz</h2>
+            <p class="section-subtitle">Çerkezköy-Çorlu Yolu üzerinde kolayca bizi bulabilirsiniz</p>
+            <div class="map-container">
+                <div class="map-header">
+                    <h3>📍 Google Maps'te Konumumuzu Görüntüle</h3>
+                </div>
+                <div class="map-content">
+                    <div class="map-info">
+                        <h4>Çerkezköy- Çorlu Yolu No:21</h4>
+                        <p><strong>Adres:</strong><br>
+                            Hıdırağa, Çerkezköy- Çorlu Yolu No:21, 59850 Çorlu/Tekirdağ</p>
+                        <p><strong>Telefon:</strong><br>
+                            +90 (551) 351 38 59</p>
+                        <p><strong>Çalışma Saatleri:</strong><br>
+                            7/24 Açık</p>
+                        <a href="https://www.google.com/maps/place/Moil-Total+Yakupo%C4%9Fullar%C4%B1+Petrol/@41.2229796,27.8564664,15.42z/data=!4m6!3m5!1s0x14b4df68b3ed570d:0x99295d9e6fff2b41!8m2!3d41.2216023!4d27.8611948!16s%2Fg%2F11yhyc1sn3"
+                            target="_blank" class="map-link">📱 Daha büyük haritayı görüntüle</a>
+                    </div>
+                    <div>
+                        <iframe class="map-iframe"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.356!2d27.8611948!3d41.2216023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b4df68b3ed570d%3A0x99295d9e6fff2b41!2sMoil-Total%20Yakupo%C4%9Fullar%C4%B1%20Petrol!5e0!3m2!1str!2str!4v1234567890123!5m2!1str!2str"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="iletisim">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Yakupoğulları Petrol</h3>
+                <p style="margin-top: 20px; color: #d4af37;">Güvenilir Petrol Ürünleri</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <a href="#ana-sayfa">Ana Sayfa</a>
+                <a href="#hizmetler">Hizmetler</a>
+                <a href="#tir-yikama">Tır Yıkama</a>
+                <a href="#hakkimizda">Hakkımızda</a>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <p>📍 Velimeşe OSB, Çerkezköy-Çorlu Yolu, 59880 Ergene/Tekirdağ</p>
+                <p>📞 +90 (551) 351 38 59</p>
+                <p>✉️ <a href="mailto:yakupogullaripetrol@gmail.com"
+                        style="color: #b0b0b0; text-decoration: none;">yakupogullaripetrol@gmail.com</a></p>
+                <p>🕐 7/24 Açık</p>
+                <p><a href="https://share.google/CR1s3d4wj8BdoxDWH" target="_blank" style="color: #d4af37;">🗺️ Google
+                        Maps'te Görüntüle</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Sosyal Medya</h3>
+                <a href="https://www.instagram.com/yakupogullaripetrol/">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Yakupoğulları Petrol. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+    <script>
+        // Slider functionality
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const slider = document.getElementById('slider');
+
+        function showSlide(index) {
+            if (index >= slides.length) {
+                currentSlideIndex = 0;
+            } else if (index < 0) {
+                currentSlideIndex = slides.length - 1;
+            } else {
+                currentSlideIndex = index;
+            }
+
+            slider.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === currentSlideIndex) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function moveSlide(direction) {
+            showSlide(currentSlideIndex + direction);
+        }
+
+        function currentSlide(index) {
+            showSlide(index);
+        }
+
+        // Auto-advance slides every 5 seconds
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+
+        // Initialize
+        showSlide(0);
+
+        // Swipe Functionality for Main Slider
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const sliderContainer = document.querySelector('.slider-container');
+
+        sliderContainer.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        sliderContainer.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                moveSlide(1); // Swipe Left -> Next Slide
+            }
+            if (touchEndX > touchStartX + 50) {
+                moveSlide(-1); // Swipe Right -> Prev Slide
+            }
+        }
+
+        // Swipe Functionality for Truck Wash Slider
+        let truckTouchStartX = 0;
+        let truckTouchEndX = 0;
+        const truckWashContainer = document.querySelector('.truck-wash-slider');
+
+        truckWashContainer.addEventListener('touchstart', e => {
+            truckTouchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        truckWashContainer.addEventListener('touchend', e => {
+            truckTouchEndX = e.changedTouches[0].screenX;
+            handleTruckSwipe();
+        }, { passive: true });
+
+        function handleTruckSwipe() {
+            if (truckTouchEndX < truckTouchStartX - 50) {
+                moveTruckWashSlide(1);
+            }
+            if (truckTouchEndX > truckTouchStartX + 50) {
+                moveTruckWashSlide(-1);
+            }
+        }
+
+
+        // Hamburger menu functionality
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav');
+
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Truck Wash Slider functionality
+        let currentTruckWashIndex = 0;
+        const truckWashSlides = document.querySelectorAll('.truck-wash-slide');
+        const truckWashDots = document.querySelectorAll('.truck-wash-dot');
+        const truckWashSlider = document.getElementById('truckWashSlider');
+
+        function showTruckWashSlide(index) {
+            if (index >= truckWashSlides.length) {
+                currentTruckWashIndex = 0;
+            } else if (index < 0) {
+                currentTruckWashIndex = truckWashSlides.length - 1;
+            } else {
+                currentTruckWashIndex = index;
+            }
+
+            truckWashSlider.style.transform = `translateX(-${currentTruckWashIndex * 100}%)`;
+
+            truckWashDots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === currentTruckWashIndex) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function moveTruckWashSlide(direction) {
+            showTruckWashSlide(currentTruckWashIndex + direction);
+        }
+
+        function currentTruckWashSlide(index) {
+            showTruckWashSlide(index);
+        }
+
+        // Auto-advance truck wash slides every 4 seconds
+        setInterval(() => {
+            moveTruckWashSlide(1);
+        }, 4000);
+
+        // Initialize truck wash slider
+        showTruckWashSlide(0);
+
+    </script>
+    <script src="language-switcher.js"></script>
+    <!-- Mobile Contact Widget -->
+    <div class="mobile-contact-widget" id="mobileContactWidget">
+        <div class="mobile-widget-container">
+            <div class="mobile-contact-trigger" onclick="toggleMobileContact()">
+                İLETİŞİM
+            </div>
+            <div class="mobile-contact-content">
+                <div class="mobile-contact-item">
+                    <i>📞</i>
+                    <span>+90 (551) 351 38 59</span>
+                </div>
+                <div class="mobile-contact-item">
+                    <i>✉️</i>
+                    <a href="mailto:yakupogullaripetrol@gmail.com"
+                        style="color: inherit; text-decoration: none;">yakupogullaripetrol@gmail.com</a>
+                </div>
+                <div class="mobile-contact-item">
+                    <i>📍</i>
+                    <span>Velimeşe OSB, Ergene/Tekirdağ</span>
+                </div>
+                <div class="mobile-contact-item"
+                    style="color: #d4af37; font-weight: bold; justify-content: center; margin-top: 10px;">
+                    7/24 Açık
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileContact() {
+            const widget = document.getElementById('mobileContactWidget');
+            widget.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

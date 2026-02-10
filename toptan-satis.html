@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toptan Satış - Yakupoğulları Petrol</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #f9f9f9;
+            /* Off-white background */
+            border-bottom: 3px solid #d4af37;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            /* Lighter shadow */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background: #0f0f1e;
+            padding: 10px 0;
+            border-bottom: 1px solid #2a2a3e;
+        }
+
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            color: #d4af37;
+            font-size: 14px;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #langToggle {
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #0a0a0a;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+        }
+
+        #langToggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.5);
+        }
+
+        nav {
+            padding: 0;
+            /* Reduced to minimum */
+        }
+
+        /* ... existing styles ... */
+
+        /* Mobile Contact Widget */
+        .mobile-contact-widget {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 9999;
+            display: none;
+        }
+
+        .mobile-widget-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-contact-trigger {
+            background-color: #d4af37;
+            color: #000;
+            padding: 15px 5px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-weight: bold;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            cursor: pointer;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .mobile-contact-content {
+            position: fixed;
+            top: 50%;
+            right: -300px;
+            transform: translateY(-50%);
+            width: 280px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border: 2px solid #d4af37;
+            border-right: none;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .mobile-contact-widget.active .mobile-contact-content {
+            right: 0;
+        }
+
+        .mobile-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+            font-size: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .mobile-contact-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .mobile-contact-item i {
+            font-size: 20px;
+            width: 25px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-contact-widget {
+                display: block;
+            }
+
+            .top-bar .contact-info {
+                display: none;
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            /* Widened from 1200px */
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d4af37;
+            text-shadow: none;
+            /* Removed text shadow */
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 125px;
+            /* Increased from 110px */
+            width: auto;
+            margin-right: -10px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            flex-wrap: nowrap;
+            /* Prevent wrapping */
+        }
+
+        .nav-links a {
+            color: #333333;
+            /* Dark text for light background */
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 5px;
+            white-space: nowrap;
+            /* Ensure text doesn't wrap */
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+            background: rgba(0, 0, 0, 0.05);
+            /* Light hover effect */
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #16213e;
+            padding: 15px 0;
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 20px;
+            color: #b0b0b0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+        }
+
+        .contact-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 42px;
+            color: #d4af37;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .contact-subtitle {
+            font-size: 22px;
+            color: #b0b0b0;
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+            padding: 50px 30px;
+            border-radius: 15px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.5);
+        }
+
+        .contact-icon {
+            font-size: 80px;
+            margin-bottom: 25px;
+        }
+
+        .contact-label {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-value {
+            font-size: 32px;
+            color: #d4af37;
+            font-weight: 700;
+            word-break: break-word;
+        }
+
+        .contact-value a {
+            color: #d4af37;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: #f4d03f;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+        }
+
+        .map-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 3px solid #d4af37;
+        }
+
+        .map-header {
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            padding: 25px;
+            text-align: center;
+        }
+
+        .map-header h3 {
+            color: #0a0a0a;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+        }
+
+        .benefits-title {
+            text-align: center;
+            font-size: 38px;
+            color: #d4af37;
+            margin-bottom: 50px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: #f9f9f9;
+            /* Off-white background */
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 2px solid #e0e0e0;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-card:hover {
+            display: block;
+            border-color: #d4af37;
+            transform: translateY(-5px);
+            background: #eaeaea;
+            /* Slightly darker on hover */
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 60px;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h4 {
+            color: #333333;
+            /* Dark text */
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: #555555;
+            /* Dark grey text */
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0f0f1e 100%);
+            padding: 60px 20px 20px;
+            border-top: 3px solid #d4af37;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #b0b0b0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2a2a3e;
+            color: #888;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #langToggle {
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #0a0a0a;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+        }
+
+        #langToggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                border-top: 2px solid #d4af37;
+            }
+
+            .nav-links.active {
+                max-height: 400px;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid #2a2a3e;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 15px 20px;
+                border-radius: 0;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .logo-image {
+                height: 40px;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .contact-title {
+                font-size: 28px;
+            }
+
+            .contact-value {
+                font-size: 22px;
+            }
+
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span>📞 +90 (551) 351 38 59</span>
+                    <span>📍 Velimeşe OSB, Çerkezköy-Çorlu Yolu, Ergene/Tekirdağ</span>
+                </div>
+                <div class="lang-switcher"><button id="langToggle" onclick="toggleLanguage()">EN</button></div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <div class="nav-content">
+                    <a href="index.html" class="logo">
+                        <img src="amblemler/amblem1.png" alt="Moil Logo" class="logo-image">
+                        YAKUPOĞULLARI<span>PETROL</span>
+                    </a>
+                    <div class="hamburger" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="index.html#ana-sayfa">Ana Sayfa</a></li>
+                        <li><a href="index.html#hizmetler">Hizmetler</a></li>
+                        <li><a href="tir-yikama.html">Tır Yıkama</a></li>
+                        <li><a href="index.html#hakkimizda">Hakkımızda</a></li>
+                        <li><a href="index.html#iletisim">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Anasayfa</a> > <a href="index.html#hizmetler">Hizmetler</a> > <span
+                style="color: #d4af37;">Toptan Satış</span>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Toptan Satış</h1>
+            <p>Kurumsal müşterilerimize özel avantajlı fiyatlar ve profesyonel hizmet sunuyoruz</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-wrapper">
+            <h2 class="contact-title">Toptan Satış İçin İletişime Geçin</h2>
+            <p class="contact-subtitle">Kurumsal alımlarınız için özel fiyatlar ve avantajlı koşullar sunuyoruz. Bizimle
+                iletişime geçerek detaylı bilgi alabilirsiniz.</p>
+
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-label">Telefon</div>
+                    <div class="contact-value">
+                        <a href="tel:+905513513859">+90 (551) 351 38 59</a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-label">E-Mail</div>
+                    <div class="contact-value">
+                        <a href="mailto:yakupogullaripetrol@gmail.com">yakupogullaripetrol@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-label">Adres</div>
+                    <div class="contact-value" style="font-size: 24px;">
+                        Velimeşe OSB, Çerkezköy-Çorlu Yolu, 59880 Ergene/Tekirdağ
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="benefits-title">Toptan Satış Avantajları</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h4>Avantajlı Fiyatlar</h4>
+                    <p>Toplu alımlarda özel indirimli fiyatlar ve ödeme kolaylıkları</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚚</div>
+                    <h4>Hızlı Teslimat</h4>
+                    <p>Geniş araç filomuz ile zamanında ve güvenli teslimat</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📋</div>
+                    <h4>Özel Anlaşmalar</h4>
+                    <p>Firma ihtiyaçlarınıza özel esnek ödeme ve teslimat planları</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Kalite Garantisi</h4>
+                    <p>Moil ve Total Energies kalitesiyle güvenilir ürünler</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👔</div>
+                    <h4>Özel Müşteri Temsilcisi</h4>
+                    <p>Size özel müşteri temsilciniz ile kesintisiz iletişim</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h4>Raporlama Sistemi</h4>
+                    <p>Detaylı alım raporları ve online takip imkanı</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-wrapper">
+                <div class="map-header">
+                    <h3>📍 Konumumuz</h3>
+                </div>
+                <iframe class="map-iframe"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.356!2d27.8611948!3d41.2216023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b4df68b3ed570d%3A0x99295d9e6fff2b41!2sMoil-Total%20Yakupo%C4%9Fullar%C4%B1%20Petrol!5e0!3m2!1str!2str!4v1234567890123!5m2!1str!2str"
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Yakupoğulları Petrol</h3>
+                <p style="margin-top: 20px; color: #d4af37;">Güvenilir Petrol Ürünleri</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <a href="index.html#ana-sayfa">Ana Sayfa</a>
+                <a href="index.html#hizmetler">Hizmetler</a>
+                <a href="tir-yikama.html">Tır Yıkama</a>
+                <a href="index.html#hakkimizda">Hakkımızda</a>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <p>📍 Velimeşe OSB, Çerkezköy-Çorlu Yolu, 59880 Ergene/Tekirdağ</p>
+                <p>📞 +90 (551) 351 38 59</p>
+                <p>✉️ <a href="mailto:yakupogullaripetrol@gmail.com"
+                        style="color: #b0b0b0; text-decoration: none;">yakupogullaripetrol@gmail.com</a></p>
+                <p>🕐 7/24 Açık</p>
+            </div>
+            <div class="footer-section">
+                <h3>Sosyal Medya</h3>
+                <a href="https://www.instagram.com/yakupogullaripetrol/">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Yakupoğulları Petrol. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Contact Widget -->
+    <div class="mobile-contact-widget" id="mobileContactWidget">
+        <div class="mobile-widget-container">
+            <div class="mobile-contact-trigger" onclick="toggleMobileContact()">
+                İLETİŞİM
+            </div>
+            <div class="mobile-contact-content">
+                <div class="mobile-contact-item">
+                    <i>📞</i>
+                    <span>+90 (551) 351 38 59</span>
+                </div>
+                <div class="mobile-contact-item">
+                    <i>✉️</i>
+                    <a href="mailto:yakupogullaripetrol@gmail.com"
+                        style="color: inherit; text-decoration: none;">yakupogullaripetrol@gmail.com</a>
+                </div>
+                <div class="mobile-contact-item">
+                    <i>📍</i>
+                    <span>Velimeşe OSB, Ergene/Tekirdağ</span>
+                </div>
+                <div class="mobile-contact-item"
+                    style="color: #d4af37; font-weight: bold; justify-content: center; margin-top: 10px;">
+                    7/24 Açık
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileContact() {
+            const widget = document.getElementById('mobileContactWidget');
+            widget.classList.toggle('active');
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+    </script>
+    <script src="language-switcher.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madeni Yağ Çeşitleri - Yakupoğulları Petrol</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Header - Same as other pages */
+        header {
+            background: #f9f9f9;
+            /* Off-white background */
+            border-bottom: 3px solid #d4af37;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            /* Lighter shadow */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background: #0f0f1e;
+            padding: 10px 0;
+            border-bottom: 1px solid #2a2a3e;
+        }
+
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #langToggle {
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #0a0a0a;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+        }
+
+        #langToggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.5);
+        }
+
+        .contact-info span {
+            color: #d4af37;
+            font-size: 14px;
+        }
+
+        nav {
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d4af37;
+            text-shadow: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #333333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #16213e;
+            padding: 15px 0;
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #b0b0b0;
+        }
+
+        /* Oil Types Section */
+        .oil-types {
+            padding: 80px 20px;
+            background: #f4f4f4;
+        }
+
+        .oil-type-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fcfcfc 100%);
+            border: 2px solid #c5c5cb;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .oil-type-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .oil-type-header {
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            padding: 25px 30px;
+        }
+
+        .oil-type-header h2 {
+            color: #0a0a0a;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .oil-type-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .oil-type-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+        }
+
+        .oil-type-info h3 {
+            color: #d4af37;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .oil-type-info p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .oil-type-info ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .oil-type-info ul li {
+            color: #b0b0b0;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .oil-type-info ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: #d4af37;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: #b0b0b0;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #0a0a0a;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0f0f1e 100%);
+            padding: 60px 20px 20px;
+            border-top: 3px solid #d4af37;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #b0b0b0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2a2a3e;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                border-top: 2px solid #d4af37;
+            }
+
+            .nav-links.active {
+                max-height: 400px;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid #2a2a3e;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 15px 20px;
+                border-radius: 0;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .logo-image {
+                height: 40px;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .oil-type-content {
+                grid-template-columns: 1fr;
+            }
+
+            .oil-type-header h2 {
+                font-size: 24px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span>📞 +90 (551) 351 38 59</span>
+                    <span>📍 Velimeşe OSB, Çerkezköy-Çorlu Yolu, Ergene/Tekirdağ</span>
+                </div>
+                <div class="lang-switcher">
+                    <button id="langToggle" onclick="toggleLanguage()">EN</button>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <div class="nav-content">
+                    <a href="index.html" class="logo">
+                        <img src="amblemler/amblem1.png" alt="Moil Logo" class="logo-image">
+                        YAKUPOĞULLARI<span>PETROL</span>
+                    </a>
+                    <div class="hamburger" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="index.html#ana-sayfa">Ana Sayfa</a></li>
+                        <li><a href="index.html#hizmetler">Hizmetler</a></li>
+                        <li><a href="tir-yikama.html">Tır Yıkama</a></li>
+                        <li><a href="index.html#hakkimizda">Hakkımızda</a></li>
+                        <li><a href="index.html#iletisim">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Anasayfa</a> > <a href="index.html#hizmetler">Hizmetler</a> > <span
+                style="color: #d4af37;">Madeni Yağ</span>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Madeni Yağ Çeşitleri</h1>
+            <p>Motor ve araç performansınız için en uygun madeni yağ çözümleri</p>
+        </div>
+    </section>
+
+    <!-- Oil Types Section -->
+    <section class="oil-types">
+        <div class="container">
+            <!-- 0W-20 -->
+            <div class="oil-type-card">
+                <div class="oil-type-header">
+                    <h2>0W-20 Viskozite Derecesi</h2>
+                </div>
+                <div class="oil-type-content">
+                    <div class="oil-type-image">
+                        <img src="img/0-20.png" alt="0W-20 Motor Yağı" style="max-width: 100%; max-height: 100%;">
+                    </div>
+                    <div class="oil-type-info">
+                        <h3>Özellikleri ve Kullanım Alanları</h3>
+                        <p>0W-20, düşük viskoziteli bir motor yağıdır ve özellikle soğuk hava koşullarında mükemmel
+                            performans gösterir. "0W", yağın -35°C'ye kadar düşük sıcaklıklarda bile akışkan
+                            kalabileceğini gösterir.</p>
+                        <p><strong>Avantajları:</strong></p>
+                        <ul>
+                            <li>Soğuk havada kolay motor çalıştırma</li>
+                            <li>Gelişmiş yakıt ekonomisi</li>
+                            <li>Motor aşınmasının azaltılması</li>
+                            <li>Düşük emisyon değerleri</li>
+                        </ul>
+                        <p><strong>Uygun Araçlar:</strong> Modern benzinli ve hibrit araçlar, özellikle Japon markaları
+                            (Toyota, Honda, Mazda)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5W-30 -->
+            <div class="oil-type-card">
+                <div class="oil-type-header">
+                    <h2>5W-30 Viskozite Derecesi</h2>
+                </div>
+                <div class="oil-type-content">
+                    <div class="oil-type-image">
+                        <img src="img/5-30.png" alt="5W-30 Motor Yağı" style="max-width: 100%; max-height: 100%;">
+                    </div>
+                    <div class="oil-type-info">
+                        <h3>Özellikleri ve Kullanım Alanları</h3>
+                        <p>5W-30, çok yönlü bir motor yağıdır ve en yaygın kullanılan viskozite derecelerinden biridir.
+                            Hem soğuk hem de sıcak koşullarda mükemmel performans sağlar.</p>
+                        <p><strong>Avantajları:</strong></p>
+                        <ul>
+                            <li>Geniş sıcaklık aralığında koruma</li>
+                            <li>İyi yakıt ekonomisi</li>
+                            <li>Motor temizliği</li>
+                            <li>Uzun motor ömrü</li>
+                        </ul>
+                        <p><strong>Uygun Araçlar:</strong> Çoğu modern binek otomobil, hafif ticari araçlar, hem
+                            benzinli hem dizel motorlar</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5W-40 -->
+            <div class="oil-type-card">
+                <div class="oil-type-header">
+                    <h2>5W-40 Viskozite Derecesi</h2>
+                </div>
+                <div class="oil-type-content">
+                    <div class="oil-type-image">
+                        <img src="img/5-40.png" alt="5W-40 Motor Yağı" style="max-width: 100%; max-height: 100%;">
+                    </div>
+                    <div class="oil-type-info">
+                        <h3>Özellikleri ve Kullanım Alanları</h3>
+                        <p>5W-40, yüksek performanslı ve geniş sıcaklık aralığında koruma sağlayan bir motor yağıdır.
+                            Özellikle ağır yük koşullarında ve yüksek sıcaklıklarda mükemmel koruma sunar.</p>
+                        <p><strong>Avantajları:</strong></p>
+                        <ul>
+                            <li>Yüksek sıcaklıkta üstün koruma</li>
+                            <li>Motor aşınmasına karşı maksimum koruma</li>
+                            <li>Ağır yük koşullarında dayanıklılık</li>
+                            <li>Turbo şarjlı motorlar için ideal</li>
+                        </ul>
+                        <p><strong>Uygun Araçlar:</strong> Yüksek performanslı araçlar, turbo motorlar, Avrupa markaları
+                            (BMW, Mercedes-Benz, Audi, Volkswagen)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10W-40 -->
+            <div class="oil-type-card">
+                <div class="oil-type-header">
+                    <h2>10W-40 Viskozite Derecesi</h2>
+                </div>
+                <div class="oil-type-content">
+                    <div class="oil-type-image">
+                        <img src="img/10-40.png" alt="10W-40 Motor Yağı" style="max-width: 100%; max-height: 100%;">
+                    </div>
+                    <div class="oil-type-info">
+                        <h3>Özellikleri ve Kullanım Alanları</h3>
+                        <p>10W-40, ılıman ve sıcak iklim koşullarında kullanılan, yüksek kilometreli araçlar için ideal
+                            bir motor yağıdır. Geniş uygulama yelpazesi sunar.</p>
+                        <p><strong>Avantajları:</strong></p>
+                        <ul>
+                            <li>Yüksek kilometreli motorlarda aşınma koruması</li>
+                            <li>Yağ tüketiminin azaltılması</li>
+                            <li>Sıcak havalarda motor koruması</li>
+                            <li>Ekonomik çözüm</li>
+                        </ul>
+                        <p><strong>Uygun Araçlar:</strong> Yüksek kilometreli araçlar, eski model araçlar, ılıman iklim
+                            bölgeleri</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 15W-40 -->
+            <div class="oil-type-card">
+                <div class="oil-type-header">
+                    <h2>15W-40 Viskozite Derecesi</h2>
+                </div>
+                <div class="oil-type-content">
+                    <div class="oil-type-image">
+                        <img src="img/15-40.png" alt="15W-40 Motor Yağı" style="max-width: 100%; max-height: 100%;">
+                    </div>
+                    <div class="oil-type-info">
+                        <h3>Özellikleri ve Kullanım Alanları</h3>
+                        <p>15W-40, ağır hizmet dizel motorları için özel olarak geliştirilmiş bir motor yağıdır. Kamyon,
+                            otobüs ve iş makineleri için idealdir.</p>
+                        <p><strong>Avantajları:</strong></p>
+                        <ul>
+                            <li>Ağır hizmet koşullarında üstün koruma</li>
+                            <li>Dizel motorlar için optimize edilmiş</li>
+                            <li>Yüksek yük taşıma kapasitesi</li>
+                            <li>Uzun yağ değişim aralıkları</li>
+                        </ul>
+                        <p><strong>Uygun Araçlar:</strong> Kamyonlar, otobüsler, traktörler, iş makineleri, ağır hizmet
+                            dizel motorları</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 20W-50 -->
+            <div class="oil-type-card">
+                <div class="oil-type-header">
+                    <h2>20W-50 Viskozite Derecesi</h2>
+                </div>
+                <div class="oil-type-content">
+                    <div class="oil-type-image">
+                        <img src="img/20-50.png" alt="20W-50 Motor Yağı" style="max-width: 100%; max-height: 100%;">
+                    </div>
+                    <div class="oil-type-info">
+                        <h3>Özellikleri ve Kullanım Alanları</h3>
+                        <p>20W-50, yüksek viskoziteli bir motor yağıdır ve özellikle çok sıcak iklimlerde veya eski
+                            araçlarda kullanılır. Kalın film tabakası oluşturarak maksimum koruma sağlar.</p>
+                        <p><strong>Avantajları:</strong></p>
+                        <ul>
+                            <li>Çok sıcak havalarda üstün koruma</li>
+                            <li>Motor gürültüsünün azaltılması</li>
+                            <li>Yüksek yük kapasitesi</li>
+                            <li>Klasik araçlar için ideal</li>
+                        </ul>
+                        <p><strong>Uygun Araçlar:</strong> Klasik araçlar, eski model araçlar, motorsikletler, çok sıcak
+                            iklim bölgeleri</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Aracınız İçin Doğru Yağı Seçin</h2>
+            <p>Uzman ekibimiz, aracınıza en uygun madeni yağ seçiminde size yardımcı olmaktan mutluluk duyar.</p>
+            <a href="index.html#iletisim" class="cta-button">Bize Ulaşın</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Yakupoğulları Petrol</h3>
+                <p>Sektörde 30 yılı aşkın tecrübemizle hizmetinizdeyiz.</p>
+                <p style="margin-top: 20px; color: #d4af37;">Güvenilir Petrol Ürünleri</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <a href="index.html#ana-sayfa">Ana Sayfa</a>
+                <a href="index.html#hizmetler">Hizmetler</a>
+                <a href="tir-yikama.html">Tır Yıkama</a>
+                <a href="index.html#hakkimizda">Hakkımızda</a>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <p>📍 Velimeşe OSB, Çerkezköy-Çorlu Yolu, 59880 Ergene/Tekirdağ</p>
+                <p>📞 +90 (551) 351 38 59</p>
+                <p>✉️ <a href="mailto:yakupogullaripetrol@gmail.com"
+                        style="color: #b0b0b0; text-decoration: none;">yakupogullaripetrol@gmail.com</a></p>
+                <p>🕐 7/24 Açık</p>
+            </div>
+            <div class="footer-section">
+                <h3>Sosyal Medya</h3>
+                <a href="https://www.instagram.com/yakupogullaripetrol/">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Yakupoğulları Petrol. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="language-switcher.js"></script>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+    </script>
+    <script src="language-switcher.js"></script>
+</body>
+
+</html>
