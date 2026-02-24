@@ -4,7 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tır Yıkama - Yakupoğulları Petrol</title>
+    <title>Tır Yıkama | Çorlu Velimeşe Tır Yıkama - Yakupoğulları Petrol</title>
+    <link rel="icon" type="image/png" href="amblemler/amblem1.png">
+    <link rel="apple-touch-icon" href="amblemler/amblem1.png">
+    <meta name="description" content="Yakupoğulları Petrol profesyonel tır yıkama hizmeti. Çorlu ve Velimeşe'de 7/24 açık ağır vasıta yıkama. Modern ekipman, uygun fiyat. Çerkezköy-Çorlu yolu üzeri.">
+    <meta name="keywords" content="tır yıkama, çorlu tır yıkama, velimeşe tır yıkama, ağır vasıta yıkama, kamyon yıkama, çerkezköy tır yıkama, ergene tır yıkama, 7/24 tır yıkama">
+    <meta name="author" content="Yakupoğulları Petrol">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Tır Yıkama | Çorlu Velimeşe Tır Yıkama - Yakupoğulları Petrol">
+    <meta property="og:description" content="Yakupoğulları Petrol profesyonel tır yıkama hizmeti. Çorlu ve Velimeşe'de 7/24 açık ağır vasıta yıkama. Modern ekipman, uygun fiyat. Çerkezköy-Çorlu yolu üzeri.">
+    <meta property="og:image" content="amblemler/amblem1.png">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="tr_TR">
     <style>
         * {
             margin: 0;
@@ -220,7 +231,7 @@
         }
 
         .logo span {
-            color: #fff;
+            color: #d4af37;
         }
 
         .nav-links {
@@ -661,14 +672,18 @@
                 display: block;
                 padding: 15px 20px;
                 border-radius: 0;
+                color: #ffffff;
             }
 
             .logo {
-                font-size: 20px;
+                font-size: 18px;
+                gap: 8px;
+                flex-wrap: nowrap;
             }
 
             .logo-image {
-                height: 40px;
+                height: 35px;
+                flex-shrink: 0;
             }
 
             .page-header h1 {
@@ -696,6 +711,27 @@
 
             .footer-content {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .logo {
+                font-size: 15px;
+                gap: 6px;
+            }
+
+            .logo-image {
+                height: 28px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
             }
         }
     </style>
@@ -1033,8 +1069,7 @@
                 <h3>İletişim</h3>
                 <p>📍 Velimeşe OSB, Çerkezköy-Çorlu Yolu, 59880 Ergene/Tekirdağ</p>
                 <p>📞 +90 (551) 351 38 59</p>
-                <p>✉️ <a href="mailto:yakupogullaripetrol@gmail.com"
-                        style="color: #b0b0b0; text-decoration: none;">yakupogullaripetrol@gmail.com</a></p>
+                <p>✉️ <a href="/cdn-cgi/l/email-protection#443d252f31342b2331282825362d342130362b28042329252d286a272b29" style="color: #b0b0b0; text-decoration: none;"><span class="__cf_email__" data-cfemail="265f474d53564941534a4a47544f56435254494a66414b474f4a0845494b">[email&#160;protected]</span></a></p>
                 <p>🕐 7/24 Açık</p>
             </div>
             <div class="footer-section">
@@ -1060,8 +1095,7 @@
                 </div>
                 <div class="mobile-contact-item">
                     <i>✉️</i>
-                    <a href="mailto:yakupogullaripetrol@gmail.com"
-                        style="color: inherit; text-decoration: none;">yakupogullaripetrol@gmail.com</a>
+                    <a href="/cdn-cgi/l/email-protection#87fee6ecf2f7e8e0f2ebebe6f5eef7e2f3f5e8ebc7e0eae6eeeba9e4e8ea" style="color: inherit; text-decoration: none;"><span class="__cf_email__" data-cfemail="1f667e746a6f70786a73737e6d766f7a6b6d70735f78727e7673317c7072">[email&#160;protected]</span></a>
                 </div>
                 <div class="mobile-contact-item">
                     <i>📍</i>
@@ -1075,6 +1109,7 @@
         </div>
     </div>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="language-switcher.js"></script>
     <script>
         function toggleMobileContact() {
             const widget = document.getElementById('mobileContactWidget');
@@ -1082,64 +1117,28 @@
         }
 
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-            document.querySelector('.hamburger').classList.toggle('active');
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
         }
 
-        // Slider Functionality with Scroll Snap
-        const mediaSlider = document.getElementById('mediaSlider');
-        const mediaDots = document.querySelectorAll('.media-dot');
-        let mediaIndex = 0;
-        const totalSlides = 4;
-
-        // Update dots on scroll
-        mediaSlider.addEventListener('scroll', () => {
-            const scrollPos = mediaSlider.scrollLeft;
-            const slideWidth = mediaSlider.offsetWidth;
-            const index = Math.round(scrollPos / slideWidth);
-
-            mediaDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-            mediaIndex = index;
-        });
-
-        // Button controls
-        function moveMediaSlide(n) {
-            const slideWidth = mediaSlider.offsetWidth;
-            let newIndex = mediaIndex + n;
-
-            if (newIndex >= totalSlides) newIndex = 0;
-            if (newIndex < 0) newIndex = totalSlides - 1;
-
-            setMediaSlide(newIndex);
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
         }
 
-        function setMediaSlide(n) {
-            const slideWidth = mediaSlider.offsetWidth;
-            mediaSlider.scrollTo({
-                left: n * slideWidth,
-                behavior: 'smooth'
-            });
-        }
-
-        // Clean Auto-play
-        let autoPlayInterval = setInterval(() => {
-            moveMediaSlide(1);
-        }, 5000);
-
-        // Pause on interaction
-        mediaSlider.addEventListener('touchstart', () => {
-            clearInterval(autoPlayInterval);
-            // Restart after 10s of inactivity if desired, but clearing is safer for user experience
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav');
+            if (nav && navLinks && navLinks.classList.contains('active') && !nav.contains(event.target)) {
+                closeMenu();
+            }
         });
-
-        mediaSlider.addEventListener('mousedown', () => {
-            clearInterval(autoPlayInterval);
-        });
-
     </script>
-    <script src="language-switcher.js"></script>
 </body>
-
 </html>

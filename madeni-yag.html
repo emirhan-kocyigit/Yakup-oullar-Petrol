@@ -4,7 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madeni Yağ Çeşitleri - Yakupoğulları Petrol</title>
+    <title>Madeni Yağ Çeşitleri | Çorlu - Yakupoğulları Petrol Moil</title>
+    <link rel="icon" type="image/png" href="amblemler/amblem1.png">
+    <link rel="apple-touch-icon" href="amblemler/amblem1.png">
+    <meta name="description" content="Yakupoğulları Petrol madeni yağ çeşitleri. Motor yağı, şanzıman yağı, hidrolik yağ. 0W-20, 5W-30, 10W-40 ve daha fazlası. Çorlu/Velimeşe'de kaliteli madeni yağ satışı.">
+    <meta name="keywords" content="madeni yağ, motor yağı, çorlu madeni yağ, velimeşe madeni yağ, 0w-20, 5w-30, 10w-40, şanzıman yağı, hidrolik yağ, moil yağ">
+    <meta name="author" content="Yakupoğulları Petrol">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Madeni Yağ Çeşitleri | Çorlu - Yakupoğulları Petrol Moil">
+    <meta property="og:description" content="Yakupoğulları Petrol madeni yağ çeşitleri. Motor yağı, şanzıman yağı, hidrolik yağ. 0W-20, 5W-30, 10W-40 ve daha fazlası. Çorlu/Velimeşe'de kaliteli madeni yağ satışı.">
+    <meta property="og:image" content="amblemler/amblem1.png">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="tr_TR">
     <style>
         * {
             margin: 0;
@@ -92,11 +103,11 @@
         }
 
         nav {
-            padding: 20px 0;
+            padding: 0;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
             width: 100%;
@@ -122,12 +133,13 @@
         }
 
         .logo-image {
-            height: 50px;
+            height: 125px;
             width: auto;
+            margin-right: -10px;
         }
 
         .logo span {
-            color: #fff;
+            color: #d4af37;
         }
 
         .nav-links {
@@ -362,8 +374,92 @@
             color: #888;
         }
 
+        /* Mobile Contact Widget */
+        .mobile-contact-widget {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 9999;
+            display: none;
+        }
+
+        .mobile-widget-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-contact-trigger {
+            background-color: #d4af37;
+            color: #000;
+            padding: 15px 5px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-weight: bold;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            cursor: pointer;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .mobile-contact-content {
+            position: fixed;
+            top: 50%;
+            right: -300px;
+            transform: translateY(-50%);
+            width: 280px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border: 2px solid #d4af37;
+            border-right: none;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .mobile-contact-widget.active .mobile-contact-content {
+            right: 0;
+        }
+
+        .mobile-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+            font-size: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .mobile-contact-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .mobile-contact-item i {
+            font-size: 20px;
+            width: 25px;
+            text-align: center;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
+            .mobile-contact-widget {
+                display: block;
+            }
+
+            .top-bar .contact-info {
+                display: none;
+            }
+
             .hamburger {
                 display: flex;
             }
@@ -395,14 +491,18 @@
                 display: block;
                 padding: 15px 20px;
                 border-radius: 0;
+                color: #ffffff;
             }
 
             .logo {
-                font-size: 20px;
+                font-size: 18px;
+                gap: 8px;
+                flex-wrap: nowrap;
             }
 
             .logo-image {
-                height: 40px;
+                height: 35px;
+                flex-shrink: 0;
             }
 
             .page-header h1 {
@@ -424,6 +524,27 @@
 
             .footer-content {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .logo {
+                font-size: 15px;
+                gap: 6px;
+            }
+
+            .logo-image {
+                height: 28px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
             }
         }
     </style>
@@ -673,8 +794,7 @@
                 <h3>İletişim</h3>
                 <p>📍 Velimeşe OSB, Çerkezköy-Çorlu Yolu, 59880 Ergene/Tekirdağ</p>
                 <p>📞 +90 (551) 351 38 59</p>
-                <p>✉️ <a href="mailto:yakupogullaripetrol@gmail.com"
-                        style="color: #b0b0b0; text-decoration: none;">yakupogullaripetrol@gmail.com</a></p>
+                <p>✉️ <a href="/cdn-cgi/l/email-protection#ccb5ada7b9bca3abb9a0a0adbea5bca9b8bea3a08caba1ada5a0e2afa3a1" style="color: #b0b0b0; text-decoration: none;"><span class="__cf_email__" data-cfemail="621b030917120d05170e0e03100b120716100d0e22050f030b0e4c010d0f">[email&#160;protected]</span></a></p>
                 <p>🕐 7/24 Açık</p>
             </div>
             <div class="footer-section">
@@ -687,16 +807,56 @@
         </div>
     </footer>
 
+    <!-- Mobile Contact Widget -->
+    <div class="mobile-contact-widget" id="mobileContactWidget">
+        <div class="mobile-widget-container">
+            <div class="mobile-contact-trigger" onclick="toggleMobileContact()">
+                İLETİŞİM
+            </div>
+            <div class="mobile-contact-content">
+                <div class="mobile-contact-item">
+                    <i>📞</i>
+                    <span>+90 (551) 351 38 59</span>
+                </div>
+                <div class="mobile-contact-item">
+                    <i>✉️</i>
+                    <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f465e544a4f50584a53535e4d564f5a4b4d50537f58525e5653115c5052">[email&#160;protected]</a></span>
+                </div>
+                <div class="mobile-contact-item">
+                    <i>📍</i>
+                    <span>Velimeşe OSB, Ergene/Tekirdağ</span>
+                </div>
+                <div class="mobile-contact-item"
+                    style="color: #d4af37; font-weight: bold; justify-content: center; margin-top: 10px;">
+                    7/24 Açık
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="language-switcher.js"></script>
     <script>
+        function toggleMobileContact() {
+            const widget = document.getElementById('mobileContactWidget');
+            widget.classList.toggle('active');
+        }
+
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             const hamburger = document.querySelector('.hamburger');
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
         }
-    </script>
-    <script src="language-switcher.js"></script>
-</body>
 
-</html>
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+      
