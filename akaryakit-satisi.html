@@ -524,10 +524,38 @@
         }
 
         .footer-bottom {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding-top: 30px;
             border-top: 1px solid #2a2a3e;
             color: #888;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .kocyigit-dijital {
+            font-family: 'Georgia', serif;
+            color:  #888;
+            font-size: 16px;
+            font-style: italic;
+            letter-spacing: 1.5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .kocyigit-dijital:hover {
+            color: #c50c0c;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column-reverse; /* Mobilde imza en altta dursun */
+                text-align: center;
+                justify-content: center;
+            }
         }
 
         /* Language Switcher */
@@ -822,7 +850,12 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Yakupoğulları Petrol. Tüm hakları saklıdır.</p>
+            <div class="kocyigit-dijital">
+                Powered by K-Code Digital
+            </div>
+            <div>
+                <p>&copy; 2026 Yakupoğulları Petrol. Tüm hakları saklıdır.</p>
+            </div>
         </div>
     </footer>
 
