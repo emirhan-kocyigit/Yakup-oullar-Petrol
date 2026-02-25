@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="amblemler/amblem1.png">
+    <link rel="apple-touch-icon" href="amblemler/amblem1.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Madeni Yağ Çeşitleri - Yakupoğulları Petrol</title>
     <style>
@@ -766,11 +768,10 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+<footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Yakupoğulları Petrol</h3>
-                <p>Sektörde 30 yılı aşkın tecrübemizle hizmetinizdeyiz.</p>
                 <p style="margin-top: 20px; color: #d4af37;">Güvenilir Petrol Ürünleri</p>
             </div>
             <div class="footer-section">
@@ -784,7 +785,7 @@
                 <h3>İletişim</h3>
                 <p>📍 Velimeşe OSB, Çerkezköy-Çorlu Yolu, 59880 Ergene/Tekirdağ</p>
                 <p>📞 +90 (551) 351 38 59</p>
-                <p>✉️ <a href="/cdn-cgi/l/email-protection#3a435b514f4a555d4f56565b48534a5f4e4855567a5d575b535614595557" style="color: #b0b0b0; text-decoration: none;"><span class="__cf_email__" data-cfemail="0b726a607e7b646c7e67676a79627b6e7f7964674b6c666a626725686466">[email&#160;protected]</span></a></p>
+                <p>✉️ <a href="mailto:yakupogullaripetrol@gmail.com" style="color: #d4af37; text-decoration: none;">yakupogullaripetrol@gmail.com</a>
                 <p>🕐 7/24 Açık</p>
             </div>
             <div class="footer-section">
@@ -797,7 +798,6 @@
         </div>
     </footer>
 
-    <!-- Mobile Contact Widget -->
     <div class="mobile-contact-widget" id="mobileContactWidget">
         <div class="mobile-widget-container">
             <div class="mobile-contact-trigger" onclick="toggleMobileContact()">
@@ -810,34 +810,50 @@
                 </div>
                 <div class="mobile-contact-item">
                     <i>✉️</i>
-                    <span><a href="/cdn-cgi/l/email-protection#c7bea6acb2b7a8a0b2ababa6b5aeb7a2b3b5a8ab87a0aaa6aeabe9a4a8aa" style="color: inherit; text-decoration: none;"><span class="__cf_email__" data-cfemail="691008021c19060e1c0505081b00190c1d1b0605290e04080005470a0604">[email&#160;protected]</span></a></span>
+                    <a href="mailto:yakupogullaripetrol@gmail.com" style="color: #d4af37; text-decoration: none;">yakupogullaripetrol@gmail.com</a>
                 </div>
                 <div class="mobile-contact-item">
                     <i>📍</i>
                     <span>Velimeşe OSB, Ergene/Tekirdağ</span>
                 </div>
-                <div class="mobile-contact-item"
-                    style="color: #d4af37; font-weight: bold; justify-content: center; margin-top: 10px;">
+                <div class="mobile-contact-item" style="color: #d4af37; font-weight: bold; justify-content: center; margin-top: 10px;">
                     7/24 Açık
                 </div>
             </div>
         </div>
     </div>
 
-    
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="language-switcher.js"></script>
     <script>
-        function toggleMobileContact() {
-            const widget = document.getElementById('mobileContactWidget');
-            widget.classList.toggle('active');
-        }
-
+        // Hamburger Menu Functionality
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             const hamburger = document.querySelector('.hamburger');
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
+            if(navLinks) navLinks.classList.toggle('active');
+            if(hamburger) hamburger.classList.toggle('active');
         }
 
         function closeMenu() {
-            const navLinks 
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            if(navLinks) navLinks.classList.remove('active');
+            if(hamburger) hamburger.classList.remove('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            const navLinks = document.getElementById('navLinks');
+            const nav = document.querySelector('nav');
+            if (nav && !nav.contains(event.target) && navLinks && navLinks.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Mobile Contact Widget Functionality
+        function toggleMobileContact() {
+            const widget = document.getElementById('mobileContactWidget');
+            if(widget) widget.classList.toggle('active');
+        }
+    </script>
+    <script src="language-switcher.js"></script>
+</body>
+</html>
